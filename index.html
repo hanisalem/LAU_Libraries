@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LAU Libraries - Discover. Learn. Connect.</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+
+/* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #006751;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.9rem; 
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown a:hover {
+            background: #f8f9fa;
+            color: #667eea;
+        }
+
+/* Hero Section */
+        .hero {
+            padding: 120px 2rem 80px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1529148482759-b35b25c5f217?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .search-container {
+            margin-top: 2rem;
+            animation: slideInUp 1s ease-out 0.4s both;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            background: transparent;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-box button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 1rem 2rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+/* Quick Access */
+        .quick-access {
+            padding: 4rem 2rem;
+            background: white;
+            position: relative;
+        }
+
+       /*.quick-access::before {
+            content: '';
+            position: absolute;
+            top: 0px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1529148482759-b35b25c5f217?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center/cover;
+            clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 100%);
+        }*/
+        .container {
+            display: grid;
+            
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        #open{
+             border: 2px solid white;
+             border-radius: 100px;
+             max-width: 1200px;
+            backdrop-filter: blur(2px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /*.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }*/
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            
+            background: white;
+            border-radius: 20px;
+            padding: 0.8rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .service-icon {
+            font-size:2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+       
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #006751 0%, #00b386 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+         .quick-access{
+            background-image: url('https://github.com/maya494/my-images/blob/main/jul.jpg?raw=true');
+            background-size: cover;     /* makes image fill the section */
+            background-position: center; /* centers the image */
+            background-repeat: no-repeat;
+         }
+
+ /* Hours Section */
+        .hours-section {
+            background: transparent;
+           /* padding: 2rem 1rem;*/
+           
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 0.2fr));
+            gap: 2rem;
+            margin-top:0px;
+        }
+
+        /*.hours-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }*/
+
+        .hours-card:hover {
+            transform: translateY(-5px);
+    
+        }
+
+        .hours-card h3 {
+            margin-bottom: 0.2rem;
+            color: #ffffff;
+        }
+
+        .hours-card .time {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .hours-card .status {
+            margin-top: 0rem;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .status.open {
+            background: transparent;
+            color: #59c775;
+        }
+
+        .status.closed {
+            background: transparent;
+            color: #721c24;
+        }
+
+
+      
+ /* Archives & Special Collections */
+        .swiper-slide a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .special-products {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        .section-title2{
+            color:black;
+            text-align: left;
+        }
+
+        .archives-container {
+            max-width: 1200px;
+            display: flex;
+            gap: 3rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+    
+        .swiper-container {
+            flex: 3;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+
+        .swiper-slide {
+            position: relative;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .swiper-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 2rem;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+
+        .swiper-slide:hover .slide-overlay {
+            transform: translateY(0);
+        }
+
+        .archives-links {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .archive-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius-sm);
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+
+        .archive-link:hover {
+            background: var(--white);
+            border-left-color: var(--lau-green);
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .archive-link i {
+            color: var(--lau-green);
+            font-size: 1.2rem;
+        }
+
+        a.details-btn{
+            color:#7f52aa;
+        }
+      
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: var(--white);
+            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+        }
+
+         /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .spotlight-items {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .spotlight-items img {
+                width: 100%;
+                max-width: 500px;
+            }
+            
+            .archives-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        
+            .mobile-menu-toggle {
+                display: block;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--text-dark);
+                z-index: 1001;
+            }
+            
+            .nav-links.mobile-open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: var(--white);
+                padding: 5rem 2rem 2rem;
+                overflow-y: auto;
+                z-index: 1000;
+            }
+            
+            .nav-links.mobile-open .nav-item {
+                margin-bottom: 1rem;
+            }
+            
+            .nav-links.mobile-open .dropdown {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: var(--light-gray);
+                margin: 0.5rem 0;
+                border-radius: var(--border-radius-sm);
+            }
+            
+            .hero {
+                padding: 140px 1rem 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-box {
+                flex-direction: column;
+                border-radius: var(--border-radius);
+            }
+            
+            .search-box input,
+            .search-box button {
+                width: 100%;
+                padding: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+   
+   
+
+
+  .spotlight {
+    background-image: url('https://github.com/maya494/my-images/blob/main/12569.png?raw=true');
+    background-size: cover;     /* makes image fill the section */
+    background-position: center; /* centers the image */
+    background-repeat: no-repeat;
+   
+  }
+
+ /* .spotlight {
+       
+
+  }
+
+  .spotlight-items{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 0.2fr));
+        gap: 2rem;
+        margin-top:0px;
+        height: auto;
+  }
+
+
+.spotlight-items h3,
+.spotlight-items p {
+    margin: 0;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;    /* stack h3 above p 
+    justify-content: flex-start;
+}*/
+
+.spotlight-items {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.spotlight-items h2,
+.spotlight-items p {
+    margin: 0;
+ 
+}
+.spotlight-items p{
+    font-size: large;
+    padding-top: 10px;
+}
+#news-title .btn2 {
+    border-radius: 0px !important;
+    color: #333;
+    }
+
+#news-title a {
+    text-decoration: none;
+}
+
+
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <img src="https://online.lau.edu.lb/wp-content/uploads/2021/04/LAU-logo-green.png" alt="LAU Logo">
+                <span class="logo-text">Libraries</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li class="nav-item">
+                    <a href="#find">🔍 Find</a>
+                    <div class="dropdown">
+                        <a href="#catalog">Library Catalog</a>
+                        <a href="#Electronic resources 1">Electronic Resuorces</a> <!--added by Julien-->
+                        <!--<a href="#databases">Databases & Articles</a>--> <!--added by Julien-->
+                        <a href="#reserves">Course Reserves</a>
+                        <a href="#digital">Digital Collections (LAUR)</a> <!--modifiyed by Julien-->
+                        <a href="#Special Collections 1">Special Collections </a> <!--added by Julien-->
+                        <a href="#guides">Research & Subject Guides</a> <!--modifiyed by Julien-->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#learn">🎓 Research Support</a> <!--modifiyed by Julien-->
+                    <div class="dropdown">
+                        <a href="#Real-time Librarian Chat 01">Ask a Librarian</a> <!--added by Julien-->
+                        <a href="#Research Consultations 01">Research Consultations</a> <!--added by Julien-->
+                        <!--<a href="#study">Study Spaces</a>--> <!--added by Julien-->
+                        <!--<a href="#creative">Creative Space</a>--> <!--added by Julien-->
+                        <a href="#citation">Citation Help</a>
+                        <a href="#tutorials">Research Tutorials</a>
+                        <a href="#Thesis Guidelines 01">Thesis Guidelines</a> <!--added by Julien-->
+                        <a href="#Writing & Communication Center 01">Writing & Communication Center</a> <!--added by Julien-->
+                        <a href="#workshops">Workshops & Events</a> 
+                        <a href="#Open Access & Copyright 01">Open Access & Copyright</a> <!--added by Julien-->
+                        <a href="#Citation Metrics & Publishing 01">Citation Metrics & Publishing</a> <!--added by Julien-->
+                        <a href="#Research with and about AI 01">Research with and about AI</a> <!--added by Julien-->
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#services">💼 Library Services</a>
+                    <div class="dropdown">
+                        <a href="#WhatsApp a Librarian 01">WhatsApp a Librarian</a><!--added by Julien-->
+                        <a href="#borrow">Borrow & Renew</a><!--modifiyed by Julien-->
+						<a href="#ill">Interlibrary Loan / Document Delivery</a>
+                        <a href="#Order Materials 01">Order Materials</a><!--added by Julien-->
+                        <a href="#Coursepack Support 01">Coursepack Support</a><!--added by Julien-->
+						<a href="#print">Print / Scan / Copy</a> <!--modifiyed by Julien-->
+                        <a href="#Study & Creative Spaces 01">Study & Creative Spaces</a><!--added by Julien-->
+                        <a href="#Computers & Equipment 01">Computers & Equipment</a><!--added by Julien-->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#help">🏛️ Locations & Facilities</a>
+                    <div class="dropdown">
+                        <a href="#Floor Maps 01">Floor Maps</a><!--added by Julien-->
+                        <a href="#Study Rooms & Creative Spaces 01">Study Rooms & Creative Spaces</a><!--added by Julien-->
+                        <a href="#contact">Library Branches (RNL, JGJL, HSL)</a><!--modifiyed by Julien-->
+                        <a href="#hours">Hours & Contact Info</a><!--modifiyed by Julien-->
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#about">📣 News & About</a>
+                    <div class="dropdown">
+                        <a href="#libraries">About the Libraries</a><!--modifiyed by Julien-->
+                        <a href="#staff">Staff Directory</a>
+                        <a href="#Strategic Plan 01">Strategic Plan</a><!--added by Julien-->
+                        <a href="#policies">Policies</a>
+                        <a href="#news">News & Updates</a>
+                        <a href="#donate">Donate</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover. Create. Connect.</h1>
+            <p>Your gateway to academic excellence and research innovation</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search books, articles, databases, and more..." id="searchInput">
+                    <button onclick="performSearch()">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <section class="hours-section">
+        <div class="container" id="open">
+            <h2 class="section-title">Library Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Riyad Nassar Library</h3>
+                    <div class="time">7:30 AM - 5:00 PM</div>
+                    <div class="status open">Open</div>
+                </div>
+                <div class="hours-card">
+                    <h3>Joseph G. Jabbra Library</h3>
+                    <div class="time">7:30 AM - 5:00 PM</div>
+                    <div class="status open">Open</div>
+                </div>
+                <div class="hours-card">
+                    <h3>Health Sciences Library</h3>
+                    <div class="time">7:30 AM - 2:30 PM</div>
+                    <div class="status closed">Closed</div>
+                </div>
+                <div class="hours-card">
+                    <h3>NY Academic Center</h3>
+                    <div class="time">9:00 AM - 9:00 PM</div>
+                    <div class="status closed">Closed</div>
+                </div>
+            </div>
+        </div>
+    </section>
+           
+    </section>
+
+    <section class="quick-access">
+
+
+        <div class="container">
+            
+            <!--<h2 class="section-title">Popular Services</h2>-->
+            <div class="services-grid">
+                <div class="service-card">
+                    <span class="service-icon">📖</span>
+                    <h3>One-Search</h3>
+                    <p>Search our comprehensive collection of books, e-books, and digital resources</p>
+                    <a href="#" class="btn">Browse Catalog</a>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🛠️</span>
+                    <h3>Creative Space</h3>
+                    <p>3D printing, laser cutting, podcasting, and digital media production studio</p>
+                    <a href="#" class="btn">Book Equipment</a>
+                </div>
+                 <div class="service-card">
+                    <span class="service-icon">📚</span>
+                    <h3>Writing and Communication Center</h3>
+                    <p>Whether you are brainstorming or drafting we are her for you. </p>
+                    <a href="#" class="btn">Browse Databases</a>
+                </div>
+                
+                <div class="service-card">
+                    <span class="service-icon">🎓</span>
+                    <h3>Research Assist</h3>
+                    <p>Need Help? <br> Meet our professionals who are ready to help and assist you.</p>
+                    <a href="#" class="btn">Register Now</a>
+                </div>
+                <!--<div class="service-card">
+                    <span class="service-icon">📰</span>
+                    <h3>Library News</h3>
+                    <p>Stay updated with new resources, events, and library announcements</p>
+                    <a href="#" class="btn">Read News</a>
+                </div>-->
+                 <div class="service-card">
+                    <span class="service-icon">🎓</span>
+                    <h3>Training Sessions</h3>
+                    <p>Learn research skills, citation methods, and database usage<br><br></p>
+                    <a href="#" class="btn">Register Now</a>
+                </div>
+              
+               <div class="service-card">
+                    <span class="service-icon">🏠</span>
+                    <h3>Study Spaces</h3>
+                    <p>Book group study rooms and find quiet spaces for focused learning <br> <br></p>
+                    <a href="#" class="btn">Reserve Room</a>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">🖨️</span>
+                    <h3>Print & Scan</h3>
+                    <p>Printing, copying, and scanning services available at all locations<br><br></p>
+                    <a href="#" class="btn">Add Credit</a>
+                </div>
+                <div class="service-card">
+                    <span class="service-icon">📚</span>
+                    <h3>Course Reserves</h3>
+                    <p>Access textbooks and materials placed on reserve by your professors</p>
+                    <a href="#" class="btn">View Reserves</a>
+                </div> 
+                  
+            </div>
+        </div>
+
+
+    </section>
+<!-- <section>
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+ Explore Section 
+    <section class="explore-section">
+        <div class="container">
+            <div class="section-header">
+                <h1>Explore Our Collections</h1>
+                <p>Dive into a world of knowledge with our comprehensive academic resources</p>
+            </div>
+
+            <div class="card-grid">
+                
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Books & E-Books</h3>
+                    <p>Access millions of academic texts and digital publications</p>
+                    <span class="stat">2.5M+ titles</span>
+                </article>
+
+                
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-file-lines"></i></div>
+                    <h3>Research Articles</h3>
+                    <p>Peer-reviewed journals and scholarly papers</p>
+                    <span class="stat">50M+ articles</span>
+                </article>
+
+               
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-database"></i></div>
+                    <h3>Databases</h3>
+                    <p>Premium research databases and repositories</p>
+                    <span class="stat">300+ databases</span>
+                </article>
+
+            
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Theses & Dissertations</h3>
+                    <p>Graduate research from universities worldwide</p>
+                    <span class="stat">5M+ works</span>
+                </article>
+
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-newspaper"></i></div>
+                    <h3>News & Magazines</h3>
+                    <p>Current events and industry publications</p>
+                    <span class="stat">10K+ sources</span>
+                </article>
+
+          
+                <article class="card">
+                    <div class="icon-box"><i class="fa-solid fa-video"></i></div>
+                    <h3>Multimedia</h3>
+                    <p>Educational videos, podcasts, and lectures</p>
+                    <span class="stat">500K+ items</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <i class="fa-solid fa-book"></i>
+                <div class="number" data-target="58">0</div>
+                <div class="label">Resources Available</div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-users"></i>
+                <div class="number" data-target="2.3">0</div>
+                <div class="label">Active Researchers</div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-ribbon"></i>
+                <div class="number" data-target="500">0</div>
+                <div class="label">Partner Institutions</div>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-globe"></i>
+                <div class="number" data-target="150">0</div>
+                <div class="label">Countries Reached</div>
+            </div>
+        </div>
+    
+
+    <script src="script.js"></script>
+
+</section>-->
+   <!-- <section class="hours-section">
+        <div class="container">
+            <h2 class="section-title">Library Hours</h2>
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <h3>Riyad Nassar Library</h3>
+                    <div class="time">7:30 AM - 5:00 PM</div>
+                    <div class="status open">Open</div>
+                </div>
+                <div class="hours-card">
+                    <h3>Joseph G. Jabbra Library</h3>
+                    <div class="time">7:30 AM - 5:00 PM</div>
+                    <div class="status open">Open</div>
+                </div>
+                <div class="hours-card">
+                    <h3>Health Sciences Library</h3>
+                    <div class="time">7:30 AM - 2:30 PM</div>
+                    <div class="status closed">Closed</div>
+                </div>
+                <div class="hours-card">
+                    <h3>NY Academic Center</h3>
+                    <div class="time">9:00 AM - 9:00 PM</div>
+                    <div class="status open">Open</div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+
+    <!-- Spotlight Section -->
+<section class="spotlight">
+    <div class="container">
+       <h1>Spotlight</h1>
+        <br>
+        <div class="spotlight-items">
+               <img src="https://github.com/maya494/my-images/blob/main/spot1.jpg?raw=true" alt="LAU Creative Space Launching" width="500" height="400">        
+                
+                     <div class="text-block">
+                         <h2>LAU Creative Space Launch</h2>
+                    
+                         <p>The Lebanese American is proud to launch the new creative space at Riyad Nassar Library, where ideas become reality. This space is a place to meet, think, and create. The space will be placed at your disposal every day from 8:00 until 4:30.
+                         For more info kindly check <a href="https://news.lau.edu.lb/2025/the-lau-libraries-creative-space-a-hub-for-collaborative-innovation-and-learning.php">The LAU Libraries’ Creative Space: A Hub for Collaborative Innovation and Learning</a>
+                                </p>
+                     </div>   
+              
+           
+         
+        </div>
+  </div>
+</section>
+
+<br>
+<br>
+
+<!-- News & Events Section -->
+<section class="news-events">
+     <div class="container">
+  <h1>News & Events</h1>
+  <div class="services-grid" id="news-title">
+    <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="https://github.com/maya494/my-images/blob/main/12560.jpg?raw=true"  width="350" height="200">
+        <h4 class="btn2">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div>
+     <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="https://github.com/maya494/my-images/blob/main/12560.jpg?raw=true"  width="350" height="200">
+        <h4 class="btn2">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="https://github.com/maya494/my-images/blob/main/12560.jpg?raw=true"  width="350" height="200">
+        <h4 class="btn2">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> 
+
+  </div>
+</section>
+
+
+<br>
+<br>
+
+<section class="special-products">
+        <div class="container">
+            <h1 class="section-title2">Archives & Special Collections</h1>
+            <div class="archives-container">
+                <div class="swiper-container">
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="https://github.com/maya494/my-images/blob/main/3.jpg?raw=true" alt="Yearbooks Collection">
+                                <div class="slide-overlay">
+                                    <h3 style="color: white; margin-bottom: 0.5rem;">LAU Yearbooks: Trireme</h3>
+                                    <p style="color: rgba(255,255,255,0.9);">A visual journey through LAU's living history—capturing campus life, people, and moments from 1937 to 2015.</p>
+                                       <a href="collection1.html" class="details-btn">More details</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://github.com/maya494/my-images/blob/main/2.jpg?raw=true" alt="Manuscript Collection">
+                                <div class="slide-overlay">
+                                    <h3 style="color: white; margin-bottom: 0.5rem;">Georgette Gebara Collection</h3>
+                                    <p style="color: rgba(255,255,255,0.9);">Discover the legacy of Georgette Gebara through this digital archive, showcasing her remarkable career as an internationally renowned Lebanese dancer, choreographer, and educator.</p>
+                                    <a href="collection1.html" class="details-btn">More details</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="https://github.com/maya494/my-images/blob/main/1.jpg?raw=true"  alt="Photography Archive">
+                                <div class="slide-overlay">
+                                    <h3 style="color: white; margin-bottom: 0.5rem;">LAU Photographs Collection</h3>
+                                    <p style="color: rgba(255,255,255,0.9);">A visual journey through LAU’s history, from the American Junior College for Women and Beirut College for Women to today.</p>
+                                    <a href="collection1.html" class="details-btn">More details</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="archives-links">
+                    <a href="#" class="archive-link">
+                        <i class="fas fa-digital-tachograph"></i>
+                        <span>Digital Collections</span>
+                    </a>
+                    <a href="#" class="archive-link">
+                        <i class="fas fa-archive"></i>
+                        <span>Special Collections</span>
+                    </a>
+                    <a href="#" class="archive-link">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Thesis & Dissertations</span>
+                    </a>
+                    <a href="#" class="archive-link">
+                        <i class="fas fa-search"></i>
+                        <span>Finding Aids</span>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+</section>
+
+   <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-home"></i> Home</a>
+                        <a href="#"><i class="fas fa-search"></i> One-Search</a>
+                        <a href="#"><i class="fas fa-calendar"></i> Events</a>
+                        <a href="#"><i class="fas fa-question-circle"></i> FAQs</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-book"></i> Borrow & Renew</a>
+                        <a href="#"><i class="fas fa-print"></i> Print & Scan</a>
+                        <a href="#"><i class="fas fa-desktop"></i> Computers</a>
+                        <a href="#"><i class="fas fa-door-open"></i> Study Rooms</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-database"></i> Databases</a>
+                        <a href="#"><i class="fas fa-bookmark"></i> Course Reserves</a>
+                        <a href="#"><i class="fas fa-graduation-cap"></i> Research Guides</a>
+                        <a href="#"><i class="fas fa-archive"></i> Digital Collections</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-map-marker-alt"></i> Locations</a>
+                        <a href="#"><i class="fas fa-clock"></i> Hours</a>
+                        <a href="#"><i class="fas fa-phone"></i> (961) 1-786456</a>
+                        <a href="mailto:libraries@lau.edu.lb"><i class="fas fa-envelope"></i> libraries@lau.edu.lb</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Lebanese American University Libraries. All rights reserved.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem;">Committed to academic excellence and research innovation</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with Librarian</span>
+    </a>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+        });
+
+        // Search functionality
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value;
+            if (searchTerm.trim()) {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        }
+
+        // Enter key search
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('mobile-open');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('mobile-open');
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+                header.style.padding = '0.5rem 0';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = 'var(--shadow)';
+                header.style.padding = '0';
+            }
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.service-card, .news-card, .hours-card');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideInUp 0.8s ease-out forwards';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // Real-time hours update
+        function updateHoursStatus() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            const currentDay = now.getDay(); // 0 = Sunday, 6 = Saturday
+            
+            document.querySelectorAll('.hours-card').forEach(card => {
+                const status = card.querySelector('.status');
+                const timeText = card.querySelector('.time').textContent;
+                
+                // Simple logic for demo - in reality, this would parse actual hours
+                const isWeekend = currentDay === 0 || currentDay === 6;
+                const isOpen = currentHour >= 7 && currentHour < 22 && !isWeekend;
+                
+                if (isOpen) {
+                    status.textContent = 'Open Now';
+                    status.className = 'status open';
+                } else {
+                    status.textContent = 'Closed';
+                    status.className = 'status closed';
+                }
+            });
+        }
+
+        // Update hours on load
+        updateHoursStatus();
+
+        // Update hours every minute
+        setInterval(updateHoursStatus, 60000);
+    </script>
+</body>
+</html>

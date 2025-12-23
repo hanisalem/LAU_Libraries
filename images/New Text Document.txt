@@ -1,0 +1,175 @@
+<section class="spotlight">
+     <div class="container">
+        <h2>Spotlight</h2>
+        <div class="spotlight-items">
+         <div class="spotlight-item">
+              <img src="spotlight1.jpg" alt="Spotlight 1">
+             <p>Highlight 1</p>
+         </div>
+        </div>
+
+        <div class="spotlight-item">
+            <img src="spotlight2.jpg" alt="Spotlight 2">
+            <p>Highlight 2</p>
+        </div>
+  </div>
+</section>
+
+
+ <!-- <div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+
+    <div class="swiper-slide" data-link="collection1.html">
+        <div class="slide-img">
+      <img src="images/12540.jpg" alt="Trireme">
+       <div class="slide-overlay">
+      <p>Short description for collection 1</p>
+      <a href="collection1.html" class="details-btn">More details</a>
+    </div>
+    </div>
+      </div>
+
+    <div class="swiper-slide" data-link="collection2.html">
+      <img src="img2.jpg" alt="Collection 2">
+      <p>Short description for collection 2</p>
+      <a href="collection2.html" class="details-btn">More details</a>
+    </div>
+
+    <div class="swiper-slide" data-link="collection3.html">
+      <img src="img3.jpg" alt="Collection 3">
+      <p>Short description for collection 3</p>
+      <a href="collection2.html" class="details-btn">More details</a>
+    </div>  
+
+     <div class="swiper-slide" data-link="collection4.html">
+      <img src="img4.jpg" alt="Collection 4">
+      <p>Short description for collection 4</p>
+      <a href="collection2.html" class="details-btn">More details</a>
+    </div>
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>-->
+
+
+<!-- Swiper container -->
+
+
+<!-- Special Products Section -->
+<!--<section class="special-products">
+     <div class="container">
+  <h1>Archives & Special Collection</h1>
+  <div class="services-grid" id="archives-title">
+    <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div>
+     <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div> <div class="service-card" >
+    <a href="https://news.lau.edu.lb/2025/family-business-leaders-reflect-on-succession-planning-continuity-and-governance-in-times-of-change.php">
+        <img src="images/12560.jpg"  width="300" height="200">
+        <h4 class="btn3">Family Business Leaders Reflect on Succession Planning, Continuity and Governance in Times of Change</h4>
+        <P>A panel at LAU explored the complexities of succession planning and the cultural, structural and human factors that shape the future of family enterprises.</P>
+      </a>
+    </div>
+  </div>
+</section>-->
+
+ <!--<section class="special-products">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+<h1>Archives & Special Collections</h1>
+ <br>
+  <br>
+  
+     <div class="container100">
+  
+
+    <div class="container200"
+  
+        <div class="swiper-mySwiper">
+        <div class="swiper-wrapper">
+
+     Slide 1 
+        <div class="swiper-slide" data-link="collection1.html">
+            <div class="slide-img">
+        <img src="images/12540.jpg" alt="Trireme">
+
+            <div class="slide-overlay">
+          <p><b>LAU Yearbooks: Trireme:</b><br>A visual journey through LAU’s living history—capturing campus life, people, and moments from 1937 to 2015.
+          </p>
+          <a href="collection1.html" class="details-btn">More details</a>
+         </div>
+               </div>
+         </div>
+
+    Slide 2 
+            <div class="swiper-slide" data-link="collection2.html">
+            <div class="slide-img">
+            <img src="images/12541.jpg" alt="Collection 2">
+
+             <div class="slide-overlay">
+          <p>Short description for collection 2</p>
+          <a href="collection2.html" class="details-btn">More details</a>
+            </div>
+             </div>
+           </div>
+         
+Pagination dots 
+  <div class="swiper-pagination"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</div>
+</div>
+
+<div class=container300>
+
+<div class="containe-slider">
+                <div class="service-card-slider">
+                    span class="service-icon-slider">📖</span>
+                    <a href="#" class="btn-slider">Digital Collections</a>
+                </div>
+                <div class="service-card-slider">
+                    <!--<span class="service-icon-slider">📖</span>
+                    <a href="#" class="btn-slider">Special Collections</a>
+                </div>
+                <div class="service-card-slider">
+                    <!--<span class="service-icon-slider">📖</span>
+                    <a href="#" class="btn-slider">Thesis & Dissertation</a>
+                </div>
+                <div class="service-card-slider">
+                    <!--<span class="service-icon-slider">📖</span>
+                    <a href="#" class="btn-slider">Finding Aid</a>
+                </div>
+</div>
+ 
+ </section> -->
